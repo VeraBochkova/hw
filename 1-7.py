@@ -1,49 +1,93 @@
 class FarmAnimals():
-    def __init__(self, kind, color, size, age):
-        self.kind = kind
+    def __init__(self, name, color, size, age):
+        self.name = name
         self.color = color
         self.size = size
         self.age = age
 
     def __str__(self):
-        return str(dict(kind=self.kind, color=self.color, size=self.size, age=self.age))
+        return str(dict(name=self.name, color=self.color, size=self.size, age=self.age))
 
 
-class Animals(FarmAnimals):
-    def __init__(self, kind, color, size, age, horns, milk):
-        super().__init__(kind, color, size, age)
-        self.horns = horns
+class Cows(FarmAnimals):
+    def __init__(self, name, color, size, age, milk):
+        super().__init__(name, color, size, age)
         self.milk = milk
 
     def __str__(self):
-        return str(dict(kind=self.kind, color=self.color, size=self.size, age=self.age, horns=self.horns, milk=self.milk))
+        return str(dict(name=self.name, color=self.color, size=self.size, age=self.age, milk=self.milk))
 
 
-class Birds(FarmAnimals):
-    def __init__(self, kind, color, size, age, gender, eggs):
-        super().__init__(kind, color, size, age)
-        self.gender = gender
+class Goats(FarmAnimals):
+    def __init__(self, name, color, size, age, horns):
+        super().__init__(name, color, size, age)
+        self.horns = horns
+
+    def __str__(self):
+        return str(dict(name=self.name, color=self.color, size=self.size, age=self.age, horns=self.horns))
+
+
+class Sheep(FarmAnimals):
+    def __init__(self, name, color, size, age, wool):
+        super().__init__(name, color, size, age)
+        self.wool = wool
+
+    def __str__(self):
+        return str(dict(name=self.name, color=self.color, size=self.size, age=self.age, wool=self.wool))
+
+
+class Pigs(FarmAnimals):
+    def __init__(self, name, color, size, age, meet):
+        super().__init__(name, color, size, age)
+        self.meet = meet
+
+    def __str__(self):
+        return str(dict(name=self.name, color=self.color, size=self.size, age=self.age, meet=self.meet))
+
+
+class Ducks(FarmAnimals):
+    def __init__(self, name, color, size, age, feather):
+        super().__init__(name, color, size, age)
+        self.feather = feather
+
+    def __str__(self):
+        return str(dict(name=self.name, color=self.color, size=self.size, age=self.age, feather=self.feather))
+
+
+class Chicken(FarmAnimals):
+    def __init__(self, name, color, size, age, eggs):
+        super().__init__(name, color, size, age)
         self.eggs = eggs
 
     def __str__(self):
-        return str(dict(kind=self.kind, color=self.color, size=self.size, age=self.age, gender=self.gender, eggs=self.eggs))
+        return str(dict(name=self.name, color=self.color, size=self.size, age=self.age, eggs=self.eggs))
 
 
-cow = Animals('cow', 'white', 'big', 10, 'yes', 'yes')
+class Geese(FarmAnimals):
+    def __init__(self, name, color, size, age, fluff):
+        super().__init__(name, color, size, age)
+        self.fluff = fluff
+
+    def __str__(self):
+        return str(dict(name=self.name, color=self.color, size=self.size, age=self.age, fluff=self.fluff))
+
+
+cow = Cows('Noosha', 'white', 'big', 10, 'yes')
 print(cow)
-goat = Animals('goat', 'grey', 'medium', 7, 'yes', 'yes')
+goat = Goats('Gena', 'grey', 'medium', 7, 'yes')
 print(goat)
-sheep = Animals('sheep', 'black', 'medium', 2, 'no', 'no')
+sheep = Sheep('Masha', 'black', 'medium', 2, 'yes')
 print(sheep)
-pig = Animals('pig', 'pink', 'medium', 4, 'no', 'no')
+pig = Pigs('Noora', 'pink', 'medium', 4, 'yes')
 print(pig)
-duck = Birds('duck', 'grey', 'little', 2, 'female', 'yes')
+duck = Ducks('Donald', 'grey', 'little', 2, 'yes')
 print(duck)
-chicken = Birds('chicken', 'black', 'little', 2, 'female', 'yes')
+chicken = Chicken('Natasha', 'black', 'little', 2, 'yes')
 print(chicken)
-goose = Birds('goose', 'white', 'medium', 3, 'male', 'no')
+goose = Geese('Vasya', 'white', 'medium', 3, 'yes')
 print(goose)
-
+goose1 = Geese('Venya', 'white', 'medium', 5, 'no')
+print(goose1)
 
 
 

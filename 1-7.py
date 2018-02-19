@@ -8,6 +8,7 @@ class FarmAnimals():
     def __str__(self):
         return str(dict(kind=self.kind, color=self.color, size=self.size, age=self.age))
 
+
 class Animals(FarmAnimals):
     def __init__(self, kind, color, size, age, horns, milk):
         super().__init__(kind, color, size, age)
@@ -17,6 +18,7 @@ class Animals(FarmAnimals):
     def __str__(self):
         return str(dict(kind=self.kind, color=self.color, size=self.size, age=self.age, horns=self.horns, milk=self.milk))
 
+
 class Birds(FarmAnimals):
     def __init__(self, kind, color, size, age, gender, eggs):
         super().__init__(kind, color, size, age)
@@ -25,6 +27,7 @@ class Birds(FarmAnimals):
 
     def __str__(self):
         return str(dict(kind=self.kind, color=self.color, size=self.size, age=self.age, gender=self.gender, eggs=self.eggs))
+
 
 cow = Animals('cow', 'white', 'big', 10, 'yes', 'yes')
 print(cow)

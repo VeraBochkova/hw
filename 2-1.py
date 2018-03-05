@@ -1,20 +1,22 @@
-with open('Cook_book.txt', encoding='utf-8') as f:
-    cook_book = dict()
-    for line in f:
-        dish = line.strip().lower()
-        cook_book[dish] = list()
-        ingridients_number = f.readline()
-        for ing in range(int(ingridients_number)):
-            ingridient_list = f.readline().strip().split(' | ')
-            ingridient_name = ingridient_list[0].lower()
-            quantity = int(ingridient_list[1])
-            measure = ingridient_list[2]
-            ingridient_list = {'ingridient_name': ingridient_name, 'quantity': quantity, 'measure': measure}
-            cook_book[dish].append(ingridient_list)
-        f.readline()
+def get_cook_book(file_name):
+    with open(file_name, encoding='utf-8') as f:
+        cook_book = dict()
+        for line in f:
+            dish = line.strip().lower()
+            cook_book[dish] = list()
+            ingridients_number = f.readline()
+            for ing in range(int(ingridients_number)):
+                ingridient_list = f.readline().strip().split(' | ')
+                ingridient_name = ingridient_list[0].lower()
+                quantity = int(ingridient_list[1])
+                measure = ingridient_list[2]
+                ingridient_list = {'ingridient_name': ingridient_name, 'quantity': quantity, 'measure': measure}
+                cook_book[dish].append(ingridient_list)
+            f.readline()
+    return cook_book
 
 
-def get_shop_list_by_dishes(dishes, person_count):
+def get_shop_list_by_dishes(dishes, person_count, cook_book):
     shop_list = {}
     for dish in dishes:
         for ingridient in cook_book[dish]:
@@ -38,7 +40,8 @@ def create_shop_list():
     person_count = int(input('Введите количество человек: '))
     dishes = input('Введите блюда в расчете на одного человека (через запятую): ') \
     .lower().split(', ')
-    shop_list = get_shop_list_by_dishes(dishes, person_count)
+    cook_book = get_cook_book('cook_book.txt')
+    shop_list = get_shop_list_by_dishes(dishes, person_count, cook_book)
     print_shop_list(shop_list)
 
 

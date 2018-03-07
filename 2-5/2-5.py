@@ -21,3 +21,4 @@ if __name__ == '__main__':
     path_to_source = os.path.join(current_dir, 'Source')
     files = os.listdir(path_to_source)
     convert_images(current_dir, path_to_source, files)
+
